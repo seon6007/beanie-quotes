@@ -39,26 +39,26 @@
         overflow: hidden; /* 전체 페이지 스크롤 방지 */
       }
 
-      /* 🔥 실제 보이는 영역(주소창·홈바 제외) 안에서 카드 중앙 정렬 */
       .app {
         width: 100%;
-        max-width: 420px;
+        max-width: 380px;  /* 카드 폭 */
         margin: 0 auto;
 
-        /* 화면 높이 - 상단/하단 safe-area */
+        /* 화면 높이 - safe-area (아이폰 상단/하단 영역 제외) */
         min-height: calc(
           100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom)
         );
 
-        /* 위/아래 패딩에 safe-area 더해주기 (아이폰에서 균형 맞추기) */
-        padding: calc(8px + env(safe-area-inset-top))
-          16px
-          calc(8px + env(safe-area-inset-bottom));
+        /* 🔹위/아래는 살짝, 양 옆은 예전처럼 넉넉하게 */
+        padding: calc(12px + env(safe-area-inset-top))
+          20px
+          calc(12px + env(safe-area-inset-bottom));
 
         display: flex;
-        align-items: center;   /* 세로 가운데 */
+        align-items: center;     /* 세로 가운데 */
         justify-content: center; /* 가로 가운데 */
       }
+
 
       .card {
         background: #ffffff;
@@ -66,10 +66,14 @@
         padding: 18px 18px 18px;
         box-shadow: var(--card-shadow);
         width: 100%;
-        max-height: calc(100vh - 16px); /* 혹시 몰라 세로 오버플로우 방지 */
+        max-height: calc(100vh - 24px);
         display: flex;
         flex-direction: column;
+
+        /* 🔹화면 중앙 기준으로 살짝 위로 끌어올리기 */
+        margin-top: -10px;
       }
+
 
       .content {
         height: 230px;
@@ -430,4 +434,5 @@
     </script>
   </body>
 </html>
+
 
